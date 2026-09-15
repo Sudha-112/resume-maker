@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import toast from "react-hot-toast";
 import { useForm } from "react-hook-form";
 import { FaEnvelope, FaMapMarkerAlt, FaPhone } from "react-icons/fa";
+import { submitContactMessage } from "../api/ContactService";
 
 function Contact() {
   const [loading, setLoading] = useState(false);
@@ -12,16 +13,21 @@ function Contact() {
     formState: { errors },
   } = useForm();
 
-  // NOTE: This currently just simulates a submission on the frontend.
-  // To make it real, create a POST /api/v1/contact endpoint on the backend
-  // (save to DB or send an email) and call it here with axiosClient.
+  // Sends the form data to the backend, which saves it in the
+  // contact_messages table (see ContactController on the backend).
   const onSubmit = async (data) => {
     setLoading(true);
-    await new Promise((resolve) => setTimeout(resolve, 700));
-    console.log("Contact form submitted:", data);
-    toast.success("Message sent! We'll get back to you soon.");
-    reset();
-    setLoading(false);
+    try {
+      await submitContactMessage(data);
+      toast.success("Message sent! We'll get back to you soon.");
+      reset();
+    } catch (err) {
+      const message =
+        err?.response?.data?.message || "Could not send your message";
+      toast.error(message);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
