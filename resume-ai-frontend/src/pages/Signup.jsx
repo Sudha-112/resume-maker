@@ -2,13 +2,15 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router";
 import toast from "react-hot-toast";
 import { useForm } from "react-hook-form";
-import { FaUser, FaEnvelope, FaLock } from "react-icons/fa";
+import { FaUser, FaEnvelope, FaLock, FaEye, FaEyeSlash } from "react-icons/fa";
 import { useAuth } from "../context/AuthContext";
 
 function Signup() {
   const { signup } = useAuth();
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const {
     register,
@@ -92,7 +94,7 @@ function Signup() {
               <label className="input input-bordered flex items-center gap-2">
                 <FaLock className="opacity-60" />
                 <input
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   placeholder="At least 6 characters"
                   className="grow"
                   {...register("password", {
@@ -103,6 +105,15 @@ function Signup() {
                     },
                   })}
                 />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword((prev) => !prev)}
+                  className="opacity-60 hover:opacity-100"
+                  tabIndex={-1}
+                  aria-label={showPassword ? "Hide password" : "Show password"}
+                >
+                  {showPassword ? <FaEyeSlash /> : <FaEye />}
+                </button>
               </label>
               {errors.password && (
                 <span className="text-error text-sm mt-1">
@@ -118,7 +129,7 @@ function Signup() {
               <label className="input input-bordered flex items-center gap-2">
                 <FaLock className="opacity-60" />
                 <input
-                  type="password"
+                  type={showConfirmPassword ? "text" : "password"}
                   placeholder="Re-enter your password"
                   className="grow"
                   {...register("confirmPassword", {
@@ -127,6 +138,17 @@ function Signup() {
                       value === watch("password") || "Passwords do not match",
                   })}
                 />
+                <button
+                  type="button"
+                  onClick={() => setShowConfirmPassword((prev) => !prev)}
+                  className="opacity-60 hover:opacity-100"
+                  tabIndex={-1}
+                  aria-label={
+                    showConfirmPassword ? "Hide password" : "Show password"
+                  }
+                >
+                  {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}
+                </button>
               </label>
               {errors.confirmPassword && (
                 <span className="text-error text-sm mt-1">
