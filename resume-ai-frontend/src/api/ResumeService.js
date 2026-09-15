@@ -1,13 +1,7 @@
-import axios from "axios";
-
-export const baseURLL = "http://localhost:8080";
-
-export const axiosInstance = axios.create({
-  baseURL: baseURLL,
-});
+import axiosClient from "./axiosClient";
 
 export const generateResume = async (description) => {
-  const response = await axiosInstance.post("/api/v1/resume/generate", {
+  const response = await axiosClient.post("/api/v1/resume/generate", {
     userDescription: description,
   });
 

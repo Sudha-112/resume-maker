@@ -1,9 +1,18 @@
 import React from 'react'
-import { Link } from 'react-router'
+import { Link, useNavigate } from 'react-router'
+import { useAuth } from '../context/AuthContext'
 
 function Navbar() {
+  const { isAuthenticated, user, logout } = useAuth()
+  const navigate = useNavigate()
+
+  const handleLogout = () => {
+    logout()
+    navigate('/login')
+  }
+
   return (
-      
+
     <div className="navbar shadow bg-base-100">
   <div className="navbar-start">
     <div className="dropdown">
@@ -28,6 +37,12 @@ function Navbar() {
               <li><Link to={"/about"}>About</Link></li>
               <li><Link to={"/contact"}>Contact</Link></li>
               <li><Link to={"/services"}>Services</Link></li>
+              {!isAuthenticated && (
+                <>
+                  <li><Link to={"/login"}>Login</Link></li>
+                  <li><Link to={"/signup"}>Sign Up</Link></li>
+                </>
+              )}
       </ul>
     </div>
     <Link to={"/home"} className="btn btn-ghost text-xl">AI Resume Maker</Link>
@@ -39,8 +54,19 @@ function Navbar() {
       <li><Link to={"/services"}>Services</Link></li>
     </ul>
   </div>
-  <div className="navbar-end">
-    <a className="btn">Login</a>
+  <div className="navbar-end gap-2">
+    {isAuthenticated ? (
+      <>
+        <span className="hidden sm:inline text-sm text-base-content/70">
+          Hi, {user?.fullName?.split(" ")[0]}
+        </span>
+        <button className="btn btn-outline btn-error btn-sm sm:btn-md" onClick={handleLogout}>
+          Logout
+        </button>
+      </>
+    ) : (
+      <Link to={"/login"} className="btn">Login</Link>
+    )}
   </div>
 </div>
   )
