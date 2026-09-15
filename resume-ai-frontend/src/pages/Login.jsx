@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
 import toast from "react-hot-toast";
 import { useForm } from "react-hook-form";
-import { FaEnvelope, FaLock } from "react-icons/fa";
+import { FaEnvelope, FaLock, FaEye, FaEyeSlash } from "react-icons/fa";
 import { useAuth } from "../context/AuthContext";
 
 function Login() {
@@ -10,6 +10,7 @@ function Login() {
   const navigate = useNavigate();
   const location = useLocation();
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const {
     register,
@@ -69,13 +70,22 @@ function Login() {
               <label className="input input-bordered flex items-center gap-2">
                 <FaLock className="opacity-60" />
                 <input
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   placeholder="••••••••"
                   className="grow"
                   {...register("password", {
                     required: "Password is required",
                   })}
                 />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword((prev) => !prev)}
+                  className="opacity-60 hover:opacity-100"
+                  tabIndex={-1}
+                  aria-label={showPassword ? "Hide password" : "Show password"}
+                >
+                  {showPassword ? <FaEyeSlash /> : <FaEye />}
+                </button>
               </label>
               {errors.password && (
                 <span className="text-error text-sm mt-1">
