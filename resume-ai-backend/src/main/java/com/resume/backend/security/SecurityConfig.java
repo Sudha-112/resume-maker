@@ -31,7 +31,8 @@ public class SecurityConfig {
 
     // Public endpoints that do NOT require a JWT token
     private static final String[] PUBLIC_ENDPOINTS = {
-            "/api/v1/auth/**"
+            "/api/v1/auth/**",
+            "/api/v1/contact"
     };
 
     @Bean
