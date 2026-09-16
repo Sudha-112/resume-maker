@@ -1,6 +1,7 @@
 package com.resume.backend.controller;
 
 import com.resume.backend.dto.ContactRequest;
+import com.resume.backend.exception.ApiException;
 import com.resume.backend.model.ContactMessage;
 import com.resume.backend.repository.ContactMessageRepository;
 import jakarta.validation.Valid;
@@ -22,6 +23,11 @@ public class ContactController {
     // so no JWT/login is required (see SecurityConfig PUBLIC_ENDPOINTS).
     @PostMapping
     public ResponseEntity<Map<String, Object>> submitContact(@Valid @RequestBody ContactRequest request) {
+
+        if (contactMessageRepository.existsByEmail(request.email())) {
+            throw new ApiException("This email has already submitted a message.", HttpStatus.CONFLICT);
+        }
+
         ContactMessage saved = contactMessageRepository.save(
                 ContactMessage.builder()
                         .name(request.name())

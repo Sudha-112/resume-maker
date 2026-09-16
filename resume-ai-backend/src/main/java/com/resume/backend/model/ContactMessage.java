@@ -25,7 +25,7 @@ public class ContactMessage {
     @Column(nullable = false, length = 100)
     private String name;
 
-    @Column(nullable = false, length = 150)
+    @Column(nullable = false, length = 150, unique = true)
     private String email;
 
     @Column(nullable = false, length = 2000)
