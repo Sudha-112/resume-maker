@@ -19,7 +19,7 @@ experience: A list of job roles. Each job role should include:
 jobTitle (string)
 company (string)
 location (string)
-duration (string, e.g., "Jan 2020 - Present")
+duration (string, e.g., "Jan 2026 - Present")
 responsibility(string)
 
 education: A list of degrees. Each degree should include:

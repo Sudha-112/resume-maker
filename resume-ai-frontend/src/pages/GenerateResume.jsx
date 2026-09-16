@@ -56,6 +56,10 @@ const GenerateResume = () => {
 
   const handleGenerate = async () => {
     console.log(description);
+    if(description == ""){
+      toast.error("Please enter a description to generate your resume.");
+      return;
+    }
     // server call to get resume
 
     try {
@@ -245,6 +249,7 @@ const GenerateResume = () => {
             Generate Resume
           </button>
           <button
+            disabled={loading}
             onClick={handleClear}
             className="btn btn-secondary flex items-center gap-2"
           >

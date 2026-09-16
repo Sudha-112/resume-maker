@@ -38,7 +38,7 @@ function About() {
             </div>
             <div className="stat">
               <div className="stat-title">Avg. Time to Build</div>
-              <div className="stat-value text-secondary">2 min</div>
+              <div className="stat-value text-secondary">1 min</div>
             </div>
           </div>
         </div>

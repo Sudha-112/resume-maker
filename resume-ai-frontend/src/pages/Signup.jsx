@@ -53,7 +53,7 @@ function Signup() {
                 <FaUser className="opacity-60" />
                 <input
                   type="text"
-                  placeholder="Durgesh Kumar Tiwari"
+                  placeholder="Username"
                   className="grow"
                   {...register("fullName", {
                     required: "Full name is required",
@@ -75,7 +75,7 @@ function Signup() {
                 <FaEnvelope className="opacity-60" />
                 <input
                   type="email"
-                  placeholder="you@example.com"
+                  placeholder="you@gmail.com"
                   className="grow"
                   {...register("email", { required: "Email is required" })}
                 />

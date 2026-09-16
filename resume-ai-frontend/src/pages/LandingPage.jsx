@@ -129,7 +129,9 @@ const LandingPage = () => {
             Join thousands of users who have landed their dream jobs with our AI
             resume maker.
           </p>
-          <button className="btn btn-primary">Get Started Now</button>
+            <Link to={"/generate-resume"} className="btn btn-primary">
+              Get Started Now
+            </Link>
         </div>
       </section>
 
@@ -146,9 +148,11 @@ const LandingPage = () => {
               <a href="#" className="link link-hover">
                 About Us
               </a>
+              <br/>
               <a href="#" className="link link-hover">
                 Features
               </a>
+              <br/>
               <a href="#" className="link link-hover">
                 Contact
               </a>
@@ -158,6 +162,7 @@ const LandingPage = () => {
               <a href="#" className="link link-hover">
                 Privacy Policy
               </a>
+              <br/>
               <a href="#" className="link link-hover">
                 Terms of Service
               </a>
