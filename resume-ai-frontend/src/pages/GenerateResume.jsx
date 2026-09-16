@@ -10,7 +10,7 @@ import Resume from "../components/Resume";
 const GenerateResume = () => {
   const [data, setData] = useState({
     personalInformation: {
-      fullName: "Durgesh Kumar Tiwari",
+      fullName: "",
     },
     summary: "",
     skills: [],
