@@ -2,6 +2,7 @@ package com.resume.backend.controller;
 
 import com.resume.backend.ResumeRequest;
 import com.resume.backend.service.ResumeService;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -22,7 +23,7 @@ public class ResumeController {
 
     @PostMapping("/generate")
     public ResponseEntity<Map<String, Object>> getResumeData(
-            @RequestBody ResumeRequest resumeRequest
+           @Valid @RequestBody ResumeRequest resumeRequest
     ) throws IOException {
 
         Map<String, Object> stringObjectMap = resumeService.generateResumeResponse(resumeRequest.userDescription());
