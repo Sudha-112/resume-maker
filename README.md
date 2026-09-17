@@ -96,6 +96,7 @@ This is an actively evolving personal project. Current gaps I'm aware of and pla
 - [ ] Tighten CORS policy for production (currently permissive for local dev)
 - [ ] Move JWT storage to httpOnly cookies instead of `localStorage`
 - [ ] API documentation (OpenAPI/Swagger)
+- [ ] Add refresh-token flow with a short-lived access token (currently a single longer-lived token for simplicity, since this is a portfolio project)
 
 
 ## License
