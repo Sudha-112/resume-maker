@@ -11,7 +11,8 @@ function About() {
             <h1 className="text-4xl font-bold">About AI Resume Maker</h1>
             <p className="py-4 text-base-content/80">
               We help job seekers turn a simple description of themselves
-              into a polished, professional, ATS-friendly resume — in
+              into a polished, professional resume with 
+              ATS-friendly structure — in
               minutes, powered by AI.
             </p>
           </div>
@@ -33,12 +34,12 @@ function About() {
           </div>
           <div className="stats stats-vertical sm:stats-horizontal shadow bg-base-200">
             <div className="stat">
-              <div className="stat-title">Resumes Generated</div>
-              <div className="stat-value text-primary">10K+</div>
+              <div className="stat-title">AI-Powered</div>
+              <div className="stat-value text-primary">Resume Generation</div>
             </div>
             <div className="stat">
-              <div className="stat-title">Avg. Time to Build</div>
-              <div className="stat-value text-secondary">1 min</div>
+              <div className="stat-title">Fast Generation</div>
+              <div className="stat-value text-secondary">In Minutes</div>
             </div>
           </div>
         </div>

@@ -180,8 +180,11 @@ const Resume = ({ data }) => {
                 {proj.description}
               </p>
               <p className="text-gray-500">
-                🛠 Technologies: {proj.technologiesUsed.join(", ")}
-              </p>
+                🛠 Technologies:{" "}
+                {Array.isArray(proj.technologiesUsed)
+                  ? proj.technologiesUsed.join(", ")
+                  : proj.technologiesUsed}
+               </p>
               {proj.githubLink && (
                 <a
                   href={proj.githubLink}
@@ -244,7 +247,7 @@ const Resume = ({ data }) => {
 
       <section className="flex justify-center mt-4 ">
         <div onClick={handleDownloadPdf} className="btn btn-primary">
-          Print
+          Download PDF
         </div>
       </section>
     </>

@@ -30,15 +30,15 @@ const services = [
   },
   {
     icon: <FaPalette className="text-3xl text-primary" />,
-    title: "Clean, Modern Templates",
+    title: "Clean, Modern Resume Templates",
     description:
-      "Choose a layout that fits your industry — from minimal and modern to detailed and traditional.",
+      "Create a professional, ATS-friendly resume with a clean and modern layout designed to highlight your skills and experience.",
   },
   {
     icon: <FaLock className="text-3xl text-primary" />,
     title: "Secure Account & Data",
     description:
-      "Your resumes are tied to your own secure account, protected with encrypted passwords and JWT authentication.",
+      "Secure user authentication keeps your account protected with JWT-based authentication.",
   },
   {
     icon: <FaMobileAlt className="text-3xl text-primary" />,

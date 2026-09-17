@@ -1,5 +1,15 @@
 import React from "react";
 import { Link } from "react-router";
+import {
+  SiReact,
+  SiVite,
+  SiTailwindcss,
+  SiDaisyui,
+  SiOpenjdk,
+  SiSpringboot,
+  SiMysql,
+  SiJsonwebtokens,
+} from "react-icons/si";
 
 const LandingPage = () => {
   return (
@@ -62,62 +72,39 @@ const LandingPage = () => {
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <section className="py-20 bg-base-200">
-        <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-12">
-            What Our Users Say
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Testimonial 1 */}
-            <div className="card bg-base-100 shadow-xl">
-              <div className="card-body">
-                <p>
-                  "This AI resume maker saved me so much time! My resume looks
-                  professional and got me multiple interviews."
-                </p>
-                <div className="flex items-center mt-4">
-                  <div className="avatar">
-                    <div className="w-12 rounded-full">
-                      <img
-                        src="https://randomuser.me/api/portraits/men/1.jpg"
-                        alt="User"
-                      />
-                    </div>
-                  </div>
-                  <div className="ml-4">
-                    <h4 className="font-bold">John Doe</h4>
-                    <p>Software Engineer</p>
-                  </div>
-                </div>
-              </div>
+    {/* Tech Stack Section */}
+    <section className="py-20 bg-base-200">
+      <div className="container mx-auto px-4">
+        <h2 className="text-4xl font-bold text-center mb-4">
+            Technologies
+        </h2>
+        <p className="text-center text-base-content/70 mb-12">
+             Behind this AI-Resume Maker
+        </p>
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+          {[
+           { name: "React", Icon: SiReact, color: "#61DAFB" },
+           { name: "Vite", Icon: SiVite, color: "#646CFF" },
+           { name: "Tailwind CSS", Icon: SiTailwindcss, color: "#38BDF8" },
+           { name: "DaisyUI", Icon: SiDaisyui, color: "#5A0EF8" },
+           { name: "Java", Icon: SiOpenjdk, color: "#F89820" },
+           { name: "Spring Boot", Icon: SiSpringboot, color: "#6DB33F" },
+           { name: "MySQL", Icon: SiMysql, color: "#4479A1" },
+           { name: "JWT", Icon: SiJsonwebtokens, color: "#000000" },
+            ].map(({ name, Icon, color }) => (
+            <div
+              key={name}
+              className="card bg-base-100 shadow-xl hover:scale-105 transition-transform"
+             >
+               <div className="card-body items-center text-center py-8">
+                   <Icon size={40} color={color} />
+                   <h4 className="font-bold mt-3">{name}</h4>
+               </div>
             </div>
-            {/* Testimonial 2 */}
-            <div className="card bg-base-100 shadow-xl">
-              <div className="card-body">
-                <p>
-                  "I love the templates and the ease of use. Highly recommend
-                  this tool to anyone looking for a job."
-                </p>
-                <div className="flex items-center mt-4">
-                  <div className="avatar">
-                    <div className="w-12 rounded-full">
-                      <img
-                        src="https://randomuser.me/api/portraits/women/2.jpg"
-                        alt="User"
-                      />
-                    </div>
-                  </div>
-                  <div className="ml-4">
-                    <h4 className="font-bold">Jane Smith</h4>
-                    <p>Marketing Specialist</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+               ))}
+         </div>
+      </div>
+   </section>
 
       {/* Call to Action Section */}
       <section className="py-20 bg-base-100">
@@ -145,17 +132,11 @@ const LandingPage = () => {
             </div>
             <div>
               <h4 className="footer-title">Quick Links</h4>
-              <a href="#" className="link link-hover">
-                About Us
-              </a>
+              <Link to="/about">About Us</Link>
               <br/>
-              <a href="#" className="link link-hover">
-                Features
-              </a>
+              <Link to="/services">Services</Link>
               <br/>
-              <a href="#" className="link link-hover">
-                Contact
-              </a>
+              <Link to="/contact">Contact Us</Link>
             </div>
             <div>
               <h4 className="footer-title">Legal</h4>

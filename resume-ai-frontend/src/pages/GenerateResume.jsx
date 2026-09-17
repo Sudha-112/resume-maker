@@ -18,6 +18,7 @@ const GenerateResume = () => {
     education: [],
     certifications: [],
     projects: [],
+    achievements: [],
     languages: [],
     interests: [],
   });
@@ -37,6 +38,10 @@ const GenerateResume = () => {
     name: "certifications",
   });
   const projectsFields = useFieldArray({ control, name: "projects" });
+  const achievementsFields = useFieldArray({
+  control,
+  name: "achievements"
+});
   const languagesFields = useFieldArray({ control, name: "languages" });
   const interestsFields = useFieldArray({ control, name: "interests" });
   const skillsFields = useFieldArray({ control, name: "skills" });
@@ -56,7 +61,7 @@ const GenerateResume = () => {
 
   const handleGenerate = async () => {
     console.log(description);
-    if(description == ""){
+    if(!description.trim()){
       toast.error("Please enter a description to generate your resume.");
       return;
     }
@@ -157,7 +162,7 @@ const GenerateResume = () => {
                 "tel"
               )}
               {renderInput("personalInformation.location", "Location")}
-              {renderInput("personalInformation.linkedin", "LinkedIn", "url")}
+              {renderInput("personalInformation.linkedIn", "LinkedIn", "url")}
               {renderInput("personalInformation.gitHub", "GitHub", "url")}
               {renderInput("personalInformation.portfolio", "Portfolio", "url")}
             </div>
@@ -198,6 +203,11 @@ const GenerateResume = () => {
               "technologiesUsed",
               "githubLink",
             ])}
+             {renderFieldArray(achievementsFields, "Achievements", "achievements", [
+              "title",
+              "year",
+              "extraInformation",
+              ])}
 
             <div className="flex gap-3 mt-16  p-4 rounded-xl ">
               <div className="flex-1">
