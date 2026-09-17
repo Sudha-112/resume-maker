@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router";
+import { FaFilePdf } from "react-icons/fa";
 import {
   SiReact,
   SiVite,
@@ -50,11 +51,10 @@ const LandingPage = () => {
             {/* Feature 2 */}
             <div className="card bg-base-200 shadow-xl">
               <div className="card-body items-center text-center">
-                <div className="text-4xl mb-4">📄</div>
-                <h3 className="card-title">Multiple Templates</h3>
+                <div className="text-4xl mb-4"><FaFilePdf className="text-4xl mx-auto text-primary" /></div>
+                <h3 className="card-title">Instant PDF Export</h3>
                 <p>
-                  Choose from a variety of professionally designed resume
-                  templates.
+                  Download your finished resume as a polished, ready-to-share PDF in one click.
                 </p>
               </div>
             </div>
